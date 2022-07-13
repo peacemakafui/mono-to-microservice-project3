@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: udagram-frontend
+        image: makafuiatimpo/udagram-frontend:v6
+       env:
+        - name: POSTGRES_USERNAME
+          value: <>
+        - name: POSTGRES_PASSWORD
+          value: <>
+        - name: POSTGRES_DB
+          value: <>
+        - name: POSTGRES_HOST
+          value: <>
+        - name: AWS_REGION
+          value: <>
+        - name: AWS_BUCKET
+          value: <>
+        - name: AWS_ACCESS_KEY_ID
+          value: <>
+        - name: AWS_SECRET_KEY
+          value: <>
+        - name: URL
+          value: <>
+        - name: JWT_SECRET
+          value: <>
+        ports:
+        - containerPort: 80
